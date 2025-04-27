@@ -30,14 +30,25 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
     } while ((puntosComputadora < puntosMinimos) && (puntosMinimos <= 21));
 
     setTimeout(() => {
-        if (puntosComputadora === puntosMinimos) {
-            alert('Nadie gana :(');
-        } else if (puntosMinimos > 21) {
-            alert('Computadora gana')
-        } else if (puntosComputadora > 21) {
-            alert('Jugador Gana');
-        } else {
-            alert('Computadora Gana')
-        }
+        showAlert(
+          puntosComputadora === puntosMinimos ? 'Nadie gana :(' :
+          puntosMinimos > 21           ? 'Computadora gana'   :
+          puntosComputadora > 21       ? 'Jugador Gana'       :
+                                          'Computadora Gana'
+        );
     }, 100);
 }
+
+// Al inicio del módulo, registrar el modal
+const modal       = document.getElementById('alert-modal');
+const modalMsg    = document.getElementById('alert-message');
+const btnModalOk  = document.getElementById('btn-modal-close');
+
+function showAlert(message) {
+  modalMsg.innerText = message;
+  modal.classList.add('show');
+}
+
+btnModalOk.addEventListener('click', () => {
+  modal.classList.remove('show');
+});

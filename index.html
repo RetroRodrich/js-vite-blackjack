@@ -12,7 +12,6 @@
   </head>
   <body>
     <header class="titulo">Blackjack</header>
-
     <div class="row mt-2">
       <div id="divBotones" class="col text-center">
         <button id="btnNuevo" class="btn btn-danger">Nuevo Juego</button>
@@ -39,7 +38,14 @@
       </div>
     </div>
 
-    <div id="app"></div>
+    <!-- Modal de alertas -->
+    <div id="alert-modal" class="modal">
+      <div class="modal-content">
+        <p id="alert-message"></p>
+        <button id="btn-modal-close">OK</button>
+      </div>
+    </div>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>
